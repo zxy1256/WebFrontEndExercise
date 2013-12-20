@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+<head>
+</head>
+<body>
+	<div class="container">
+		<h1>todos</h1>
+		<div id="app">
+			<div class="row header-row">
+				<div class="left-column"></div>
+				<div class="right-column"></div>
+			</div>
+			<div class="row input-row">
+				<div class="left-column">
+					<input class="toggle" type="checkbox" id="check-all">
+				</div>
+				<div class="right-column">
+					<input id="new-todo" placeholder="What needs to be done?" autofocus>
+				</div>
+			</div>
+			<div id="todo-list">
+				<div class="row">
+					<div class="left-column">
+						<input class="toggle view" type="checkbox">
+					</div>
+					<div class="right-column">
+						<p class="todo-item view">Item 1</p>
+						<input class="todo-item edit" value="Item 1">
+					</div>
+				</div>
+				<div class="row editing">
+					<div class="left-column">
+						<input class="toggle view" type="checkbox">
+					</div>
+					<div class="right-column">
+						<p class="todo-item view">Item 2</p>
+						<input class="todo-item edit" value="Item 2">
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<p>Double-click to edit a todo</p>
+			<p>Writen by <a href="#">Xinyu Zhang</a></p>
+			<p>Part of <a href="#">TodoMVC</a>
+		</footer>
+	</div>
+
+	<script type="text/template" id="todoitem-template">
+		<div class="view">
+			<div class="left-column">
+				<input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
+			</div>
+			<div class="right-column">
+				<p class="todo-item"><%- content %></p>
+			</div>
+		</div>
+		<input class="edit" value="<%- content %>">
+	</script>
+
+	<script type="text/javascript" src="libs/jquery.js"></script>
+	<script type="text/javascript" src="libs/underscore.js"></script>
+	<script type="text/javascript" src="libs/backbone.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
