@@ -2,6 +2,8 @@ var app = app || {};
 
 // Model
 app.ToDoItem = Backbone.Model.extend({
+	url: '',
+
 	defaults: {
 		content: '',
 		completed: false		
@@ -16,9 +18,7 @@ app.ToDoItem = Backbone.Model.extend({
 
 var ToDoList = Backbone.Collection.extend({
 	model: app.ToDoItem,
-
 });
-
 app.ToDos = new ToDoList();
 
 // View
@@ -70,7 +70,9 @@ app.ToDoView = Backbone.View.extend({
 	className: 'row',
 
 	events: {
-		'dblclick .todo-item': 'edit'
+		'dblclick .view-todo': 'edit',
+		'keypress .edit-todo': 'updateOnEnter',
+		'blur .edit-todo': 'close'
 	},
 
 	initialize: function() {
@@ -79,7 +81,7 @@ app.ToDoView = Backbone.View.extend({
 
 	render: function() {
 		this.$el.html(this.tpl(this.model.toJSON()));
-		this.$input = this.$('.edit');
+		this.$input = this.$('.edit-todo');
 		return this;
 	},
 
@@ -87,6 +89,23 @@ app.ToDoView = Backbone.View.extend({
 		console.log('edit');
 		this.$el.addClass('editing');
 		this.$input.focus();
+	},
+
+	close: function() {
+		var value = this.$input.val().trim();
+
+		if (value) {
+			//this.model.save({title: value});
+			this.model.set({content: value});
+		}
+
+		this.$el.removeClass('editing');
+	},
+
+	updateOnEnter: function(e) {
+		if (e.which === 13) {
+			this.close();
+		}
 	}
 });
 
