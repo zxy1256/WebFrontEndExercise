@@ -10,14 +10,18 @@ app.ToDoItem = Backbone.Model.extend({
 	},
 
 	toggle: function() {
-		this.save({
-			completed: !this.get('completed')
+		// this.save({
+		// 	completed: !this.get('completed')
+		// });
+		this.set({
+		 	completed: !this.get('completed')
 		});
 	}
 });
 
 var ToDoList = Backbone.Collection.extend({
 	model: app.ToDoItem,
+	url: '/todos'
 });
 app.ToDos = new ToDoList();
 
@@ -70,25 +74,30 @@ app.ToDoView = Backbone.View.extend({
 	className: 'row',
 
 	events: {
+		'click .toggle': 'togglecompleted',
 		'dblclick .view-todo': 'edit',
+		'click .destroy': 'clear',
 		'keypress .edit-todo': 'updateOnEnter',
 		'blur .edit-todo': 'close'
 	},
 
 	initialize: function() {
 		this.listenTo(this.model, 'change', this.render);
+		this.listenTo(this.model, 'destroy', this.remove);
+		this.listenTo(this.model, 'visible', this.toggleVisible);
 	},
 
 	render: function() {
 		this.$el.html(this.tpl(this.model.toJSON()));
+
+		this.$el.toggleClass('completed', this.model.get('completed'));
+
 		this.$input = this.$('.edit-todo');
 		return this;
 	},
 
-	edit: function() {
-		console.log('edit');
-		this.$el.addClass('editing');
-		this.$input.focus();
+	clear: function() {
+		this.model.destroy();
 	},
 
 	close: function() {
@@ -102,6 +111,16 @@ app.ToDoView = Backbone.View.extend({
 		this.$el.removeClass('editing');
 	},
 
+	edit: function() {
+		console.log('edit');
+		this.$el.addClass('editing');
+		this.$input.focus();
+	},
+
+	togglecompleted: function() {
+		this.model.toggle();
+	},
+
 	updateOnEnter: function(e) {
 		if (e.which === 13) {
 			this.close();
@@ -111,7 +130,7 @@ app.ToDoView = Backbone.View.extend({
 
 // Router
 app.Router = Backbone.Router.extend({
-})
+});
 
 // Startup
 $(function() {

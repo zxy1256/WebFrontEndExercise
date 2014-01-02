@@ -101,10 +101,16 @@ footer {
 	height: 100%;
 	width: 100%;
 	margin: 0px;
-	content: '✔';
 	font-size: 20px;
 	color: #d9d9d9;
 	text-shadow: 0 -1px 0 #bfbfbf;
+	text-align: center;
+	-webkit-appearance: none;
+}
+
+.toggle::after {
+	content: '\2714';
+	line-height: 58px;
 }
 
 /** Right column content */
@@ -112,7 +118,6 @@ footer {
 	display: block;
 	box-sizing: border-box;
 	height: 100%;
-	width: 100%;
 	margin-top: 0px;
 	margin-bottom: 0px;
 	padding: 15px 60px 15px 15px;
@@ -120,15 +125,23 @@ footer {
 }
 
 #new-todo {
+	width: 100%;
 	border: none;
 	background-color: rgba(255, 255, 255, 0.1);
 	outline: none;
 }
 
 .view-todo {
+	float: left;
+	width: 80%;
+}
+
+.completed .view-todo {
+	text-decoration: line-through;
 }
 
 .edit-todo {
+	width: 100%;
 	outline: none;
 	border: 1px solid #999;
 	box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
@@ -149,4 +162,31 @@ footer {
 
 .row.editing .edit {
 	display: block;
+}
+
+/** Other UI components */
+.destroy {
+	display: none;
+	float: right;
+	width: 40px;
+	height: 100%;
+	margin-right: 0;
+	text-align: center;
+	display: inline;
+	color: #a88a8a;
+	font-size: 22px;
+	background-color: transparent;
+	border: 0;
+	visibility: hidden;
+	transition: all 0.2s;
+}
+
+.row:hover .destroy {
+	visibility: visible;
+}
+
+.destroy::after {
+	content: "\2716";
+	-webkit-transform: scale(1.3);
+	text-shadow: 0 0 1px #000 0 0 10px rgba(199, 107, 107, 0.8);
 }
