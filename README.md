@@ -10,16 +10,16 @@ Javascript
 Knowledge points
 ----------------
 
- # Module Patterns
-  # Module Patterns
-  # Closure Style
- # Loading
-  # Require.js/Curl.js
-  # AMD, CMD
-  # Bower, NPM,
- # Async/Promise
- # Plugin mechanism
- # Dependency Injection
- # Test Framework
+ * Module Patterns
+  - Module Patterns
+  - Closure Style
+ * Loading
+  - Require.js/Curl.js
+  - AMD, CMD
+  - Bower, NPM,
+ * Async/Promise
+ * Plugin mechanism
+ * Dependency Injection
+ * Test Framework
 
 
