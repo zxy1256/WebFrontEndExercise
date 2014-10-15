@@ -1,25 +1,62 @@
-Web Front-End Study Guide
-===================
+Web Application Development Study Guide
+========================================
+Study guide for web application engineer.
 
-Mocks of other sites. A practice of HTML, CSS and JS.
+UX & UI
+-------
+### Books
 
 
-Javascript
-===========
+HTML & CSS
+-----------
 
-Knowledge points
-----------------
+Javascript & Single Page Application
+------------------------------------
+
+### Knowledge Points
 
  * Module Patterns
-  - Module Patterns
-  - Closure Style
+    - Module Pattern
+        + http://addyosmani.com/writing-modular-js/
+    - Closure Style
+    - AMD, CMD
  * Loading
-  - Require.js/Curl.js
-  - AMD, CMD
-  - Bower, NPM,
+    - Require.js/Curl.js
+    - Bower, NPM
  * Async/Promise
  * Plugin mechanism
  * Dependency Injection
  * Test Framework
+ * Application Patterns
+    - MVC
+    - State Machine
 
+### Books
 
+ * Javascript -- the good parts
+
+### Conferences
+
+ * [JS Conf](http://www.youtube.com/user/jsconfeu)
+ * Javascript Summit
+
+### Libraries
+
+ * jQuery
+ * underscorejs
+ * Backbone
+ * Angular
+
+Application Server
+--------------------
+
+### Frameworks
+ * Javascript
+     - Express
+ * Python
+     - Django
+     - Tornado
+ * Ruby
+     - Rails
+
+### Books

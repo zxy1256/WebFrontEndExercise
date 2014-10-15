@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="libs/jquery.js"></script>
+<head>
+</head>
+<body>
+	<div class="container">
+		<h1>Diff URL</h1>
+		<div id="app">
+			<textarea id="urlA" placeholder="URL A" autofocus></textarea>
+			<textarea id="urlB" placeholder="URL B" autofocus></textarea>
+			<div id="output">
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var getQueryHash = function(url) {
+			var queryHash = {};
+			if (url) {
+				var parts = url.split('?');
+				var query = parts[1];
+				if (query) {
+					var queryPairs = query.split('&');
+					for (var q = 0; q < queryPairs.length; q++) {
+						var queryPair = queryPairs[q].split('=');
+						var key = queryPair[0];
+						var value = queryPair[1];
+						queryHash[key] = value;
+					}
+				}
+			}
+			return queryHash;
+		};
+
+		var diffHash = function(left, right) {
+			var result = {};
+			for (key in left) {
+				result[key] = [left[key], right[key]];
+			}
+			for (key in right) {
+				result[key] = [left[key], right[key]];
+			}
+			return result;
+		};
+
+		var showDiffHashAsTable = function(diffResult) {
+			var htmlStr = '<table>';
+			var attrs = Object.keys(diffResult);
+			attrs.sort();
+			for (var i = 0; i < attrs.length; i++) {
+				var key = attrs[i];
+				var line = '<tr>' + 
+					'<td class="attributeName">' + key + '</td>' +
+					'<td class="leftColumn">' + diffResult[key][0] + '</td>' +
+					'<td class="rightColumn">' + diffResult[key][1] + '</td>' +
+					'</tr>';
+				htmlStr += line;
+			}
+			htmlStr += '</table>';
+			return htmlStr;
+		};
+
+		var showDiff = function() {
+			var queryA = getQueryHash($('#urlA').val());
+			var queryB = getQueryHash($('#urlB').val());
+			var diffResult = diffHash(queryA, queryB);
+
+			$('#output').html(
+				showDiffHashAsTable(diffResult)
+			);
+		};
+
+		$('#urlA').keyup(showDiff);
+		$('#urlB').keyup(showDiff);
+	</script>
+</body>

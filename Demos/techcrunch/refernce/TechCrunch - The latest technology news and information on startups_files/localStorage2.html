@@ -1,0 +1,45 @@
+
+<!-- saved from url=(0054)http://cdn.at.atwola.com/_media/uac/localStorage2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></head><body>
+<script type="text/javascript">
+try {
+var dt=new Date();
+dt.setFullYear(dt.getFullYear()+1);
+document.cookie='Ads3PTest=yes; path=/; expires='+dt.toGMTString();
+var t='0';
+if (document.cookie.indexOf('Ads3PTest=')!=-1){
+ t='1';
+ document.cookie = 'Ads3PTest=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+var l=localStorage.getItem('adsTID'),s=sessionStorage.getItem('adsTID'),n='a',l2=1,s2=1;
+if (!l||l===undefined||l===null)l2=0
+if (!s||s===undefined||s===null)s2=0
+if (!l2&&!s2){
+var d=new Date().getTime();
+var rand='xxx-xx-4'.replace(/[xy]/g, function(c){
+ var r=Math.random()*16|0,v=c=='x'?r:(r&0x3|0x8);
+ return v.toString(16);
+});
+n='n';
+d+='|'+rand+'|N';
+localStorage.setItem('adsTID',d);
+sessionStorage.setItem('adsTID', d);
+l=d;
+}
+else if (!s2){
+  n='al';
+  sessionStorage.setItem('adsTID', l);
+}
+else if (!l2){
+ localStorage.setItem('adsTID',s);
+ l=s;
+ n='as';
+}
+l=t+';'+n+';'+l;
+var x=("tid="+l).toString();
+window.top.postMessage(x, "*");
+}
+catch (e) {}
+</script>
+
+</body></html>

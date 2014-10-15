@@ -1,0 +1,122 @@
+.logo-icon {
+	background-size: 202px auto;
+	background-image: url("../img/icons.png");
+	background-position: 0 -724px;
+	float: left;
+	text-indent: -100000px;
+	height: 40px;
+	width: 40px
+}
+
+.nav {
+	list-style: none;
+	font-size: 17px;
+	font-family: HelveticaNeueLtCn, 'HelveticaNeueW01-47LtCn 692686', Helvetica, sans-serif;
+}
+
+.nav li {
+		display: inline;
+}
+
+.nav li a {
+	color: rgb(137, 137, 137);
+}
+
+.navbar {
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+body {
+	padding-top: 70px;
+}
+
+.magazine-cover-flat {
+	margin-bottom: 15px;
+	margin-left: 8px;
+	display: inline-block;
+	box-shadow: -5px 5px 10px #cccccc;
+}
+
+/*
+ * =header
+ */
+h1, h2, h3 {
+	font-family: "HelveticaNeueMdCn", "HelveticaNeueW01-67MdCn 692710", Helvetica, sans-serif;
+	color: #363636;
+	margin: 0px;
+}
+
+h1 {
+	font-size: 52px;
+	line-height: 52px;
+}
+
+
+h2 {
+	font-size: 42px;
+	text-align: center;
+}
+
+h3 {
+	font-size: 32px;
+}
+
+.subhead {
+	color: #b7b7b7;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+/*
+ * Paragraph
+ */
+p {
+	margin-top: 16px;
+	margin-bottom: 16px;
+	color: #959595;
+	font-size: 16px;
+	font-family: Georgia, 'Times New Roman', serif;
+}
+
+p a {
+	color: rgb(179, 31, 23);
+}
+
+.row {
+	padding-top: 104px;
+	background-image: linear-gradient(to bottom, #FFFFFF 40%, #F2F2F2 100%);
+}
+
+/*
+ * Misc
+ */
+ul.get-app {
+	list-style: none;
+	padding-left: 0px;
+}
+
+ul.get-app li {
+	float: left;
+	margin: 0 5px 5px 0;
+	display: list-item;
+	line-height: 21px;
+}
+
+ul.get-app li a img{
+	height: 40px;
+}
+
+.topper {
+	text-align: center;
+	margin-bottom: 90px;
+}
+
+.section-cover {
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.img-grid {
+	padding: 0;
+}
