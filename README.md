@@ -56,6 +56,7 @@ Application Server
  * Python
      - Django
      - Tornado
+     - Twisted
  * Ruby
      - Rails
 

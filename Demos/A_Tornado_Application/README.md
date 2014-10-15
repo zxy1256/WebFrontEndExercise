@@ -1,8 +1,11 @@
 A demo application using Tornado python framework.
 
-Setup
------
 
+Running
+--------
+    
+    python server.py 8888
 
-Run and Debug
--------------
+Reference
+----------
+ * [Basically copy from here](http://www.the5fire.com/tornado-mvc-helloworld-2.html)
